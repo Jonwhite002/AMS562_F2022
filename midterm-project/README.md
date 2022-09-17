@@ -1,1 +1,3 @@
-#Test repo for AMS 562
+#Midterm Project
+
+Midterm project readme file.
