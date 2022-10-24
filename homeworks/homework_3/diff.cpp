@@ -21,19 +21,19 @@ int main(int argc, char *argv[]) {
     std::cerr << "ERROR: The value of h is either missing or is not a number!" << std::endl;
   } else if (h >= 1.0 || h <= 0.0) {
     std::cerr << "ERROR: Please choose a value of h that is less than 1 and greater than 0!" << std::endl;
+  } else {
+    // compute forward difference
+    dy_F = forwardDiff(h, val);
+
+    // compute center difference
+    dy_C = centerDiff(h, val);
+
+    // compare the errors
+    // print results
+    std::cout << "Actual value = " << cos(val) << std::endl;
+    std::cout << "Forward difference = " << dy_F << " (Error = " << errPercent(dy_F, cos(val)) << " %)" << std::endl;
+    std::cout << "Center difference = " << dy_C << " (Error = " << errPercent(dy_C, cos(val)) << " %)" << std::endl;
   }
-
-  // compute forward difference
-  dy_F = forwardDiff(h, val);
-
-  // compute center difference
-  dy_C = centerDiff(h, val);
-
-  // compare the errors
-  // print results
-  std::cout << "Actual value = " << cos(val) << std::endl;
-  std::cout << "Forward difference = " << dy_F << " (Error = " << errPercent(dy_F, cos(val)) << " %)" << std::endl;
-  std::cout << "Center difference = " << dy_C << " (Error = " << errPercent(dy_C, cos(val)) << " %)" << std::endl;
 
   return 0;
 }
