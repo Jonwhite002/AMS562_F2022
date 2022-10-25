@@ -16,11 +16,14 @@ int main(int argc, char *argv[]) {
   h = std::atof(argv[1]);
   val = pi_4;
 
+  // sanity check
   if (argc < 2 || std::isnan(h))
   {
     std::cerr << "ERROR: The value of h is either missing or is not a number!" << std::endl;
+    std::exit(1);
   } else if (h >= 1.0 || h <= 0.0) {
     std::cerr << "ERROR: Please choose a value of h that is less than 1 and greater than 0!" << std::endl;
+    std::exit(1);
   } else {
     // compute forward difference
     dy_F = forwardDiff(h, val);

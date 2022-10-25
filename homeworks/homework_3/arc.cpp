@@ -4,24 +4,56 @@
 #include <iostream>
 
 static void genPointsOnUnitSphere(const int N, float *x, float *y, float *z);
- float dotProduct(float *A, float *B);
+float dotProduct(float *A, float *B, int arr_sz);
+void unitVec(float *A, float *vec, int arr_sz);
 
 int main(int argc, char *argv[]) {
-  // parse input argc/argv
-
   // get the size of N
-  int N;
-  N = std::atof(argv[1]);
+  int N = std::atof(argv[1]);
 
-  // allocate memory for x, y, z
-  float *x = new float, *y = new float, *z = new float;
+  // sanity check
+  if (argc < 2 || std::isnan(N))
+  {
+    std::cerr << "ERROR: The value of N is either missing or is not a number!" << std::endl;
+    std::exit(1);
+  } else if (N <= 0.0) {
+    std::cerr << "ERROR: Please choose a value of N that is greater than 0!" << std::endl;
+    std::exit(1);
+  } else {
 
-  genPointsOnUnitSphere(N, x, y, z);
+    // allocate memory for x, y, z
+    float *x = new float [N], *y = new float [N], *z = new float [N];
 
-  // determine the extreme arc lengths
-  double n1, n2;
+    genPointsOnUnitSphere(N, x, y, z);
 
-  // relax memory
+    // determine the extreme arc lengths
+    float length, vec[N][3], n1[3], n2[3];
+
+    // create vectors with x y & z components
+    for (int i = 0; i < N; i++)
+    {
+      vec[i][0] = x[i];
+      vec[i][1] = y[i];
+      vec[i][2] = z[i];
+    }
+
+    // Find arc lengths of different points
+    // for (int i = 1; i < N; i++)
+    // {
+    //   unitVec(vec[0], n1, 3); unitVec(vec[i], n2, 3);
+    //   length = acos(dotProduct(n1, n2, 3));
+    //   std::cout << "Length btwn points 0 and " << i << ": " << length << std::endl;
+    // }
+
+    // Debug print out x y & z values
+    for (int i = 0; i < N; i++)
+    {
+      std::cout << "Vector " << i << ":" << x[i] << " " << y[i] << " " << z[i] << std::endl;
+    }
+
+    // relax memory
+    delete[] x; delete[] y; delete[] z;
+  }
 
   return 0;
 }
@@ -52,17 +84,32 @@ void genPointsOnUnitSphere(const int N, float *x, float *y, float *z) {
       y[i] = z[i] = 0.0f;
     }
   }
+}
 
-  float dotProduct(float *A, float *B) 
-  {
-    int arr_sz = sizeof(A)/sizeof(float);
-
+float dotProduct(float *A, float *B, int arr_sz) 
+{
     float temp = 0.0;
     for (int i = 0; i < arr_sz; i++)
     {
-      temp = temp + A[i] + B[i];
+        temp = temp + A[i]*B[i];
     }
-    return temp;
-  }
 
+    return temp;
+}
+
+void unitVec(float *A, float *vec, int arr_sz)
+{
+    // Find the norm
+    float norm, temp = 0.0;
+    for (int i = 0; i < arr_sz; i++)
+    {
+        temp = temp + pow(A[i], 2);
+    }
+    norm = sqrt(temp);
+
+    // Determine the unit vector
+    for (int i = 0; i < arr_sz; i++)
+    {
+        vec[i] = A[i]/norm;
+    }
 }
