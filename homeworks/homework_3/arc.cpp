@@ -4,20 +4,22 @@
 #include <iostream>
 
 static void genPointsOnUnitSphere(const int N, float *x, float *y, float *z);
+ float dotProduct(float *A, float *B);
 
 int main(int argc, char *argv[]) {
   // parse input argc/argv
 
-  int N = 0;
   // get the size of N
-
-  float *x = nullptr, *y = nullptr, *z = nullptr;
+  int N;
+  N = std::atof(argv[1]);
 
   // allocate memory for x, y, z
+  float *x = new float, *y = new float, *z = new float;
 
   genPointsOnUnitSphere(N, x, y, z);
 
   // determine the extreme arc lengths
+  double n1, n2;
 
   // relax memory
 
@@ -50,4 +52,17 @@ void genPointsOnUnitSphere(const int N, float *x, float *y, float *z) {
       y[i] = z[i] = 0.0f;
     }
   }
+
+  float dotProduct(float *A, float *B) 
+  {
+    int arr_sz = sizeof(A)/sizeof(float);
+
+    float temp = 0.0;
+    for (int i = 0; i < arr_sz; i++)
+    {
+      temp = temp + A[i] + B[i];
+    }
+    return temp;
+  }
+
 }
