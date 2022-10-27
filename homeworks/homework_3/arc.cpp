@@ -9,14 +9,14 @@ void unitVec(float *A, float *vec, int arr_sz);
 
 int main(int argc, char *argv[]) {
   // get the size of N
-  int N = std::atof(argv[1]);
+  int N = std::atoi(argv[1]);
 
   // sanity check
   if (argc < 2 || std::isnan(N))
   {
     std::cerr << "ERROR: The value of N is either missing or is not a number!" << std::endl;
     std::exit(1);
-  } else if (N <= 0.0) {
+  } else if (N <= 0) {
     std::cerr << "ERROR: Please choose a value of N that is greater than 0!" << std::endl;
     std::exit(1);
   } else {
@@ -38,18 +38,18 @@ int main(int argc, char *argv[]) {
     }
 
     // Find arc lengths of different points
-    // for (int i = 1; i < N; i++)
-    // {
-    //   unitVec(vec[0], n1, 3); unitVec(vec[i], n2, 3);
-    //   length = acos(dotProduct(n1, n2, 3));
-    //   std::cout << "Length btwn points 0 and " << i << ": " << length << std::endl;
-    // }
-
-    // Debug print out x y & z values
-    for (int i = 0; i < N; i++)
+    for (int i = 1; i < N; i++)
     {
-      std::cout << "Vector " << i << ":" << x[i] << " " << y[i] << " " << z[i] << std::endl;
+      unitVec(vec[0], n1, 3); unitVec(vec[i], n2, 3);
+      length = acos(dotProduct(n1, n2, 3));
+      std::cout << "Length btwn points 0 and " << i << ": " << length << std::endl;
     }
+
+    // Debug print out x y & z values [All values seem to be -0.577?]
+    // for (int i = 0; i < N; i++)
+    // {
+    //   std::cout << "V" << i << vec[i][0] << " " << vec[i][1] << " " << vec[i][2] << std::endl;
+    // }
 
     // relax memory
     delete[] x; delete[] y; delete[] z;

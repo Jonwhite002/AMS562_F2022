@@ -1,21 +1,22 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 // prototype functions
 float dotProduct(float *A, float *B, int arr_sz);
 void unitVec(float *A, float *vec, int arr_sz);
 
 int main(int argc, char *argv[]) {
     // Create meta data
-    int N = 100;
-    float *data = new float [N];
+    int N = std::atoi(argv[1]);
+    float A[3] = {3,6,9};
+    float B[3] = {7,2,4};
+    float len, n1[3], n2[3];
 
-    cout << sizeof(data)/sizeof(float) << endl;
+    unitVec(A, n1, 3);
 
-    // Relax memory
-    delete[] data;
+    len = dotProduct(A, B, 3);
+
+    std::cout << n1[0] << " " << n1[1] << " " << n1[2] << std::endl;
 
     return 0;
 }
