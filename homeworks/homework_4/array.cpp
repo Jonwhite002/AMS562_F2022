@@ -46,23 +46,9 @@ void Array::copy(const Array &rhs) {
     }
 }
 
-double &Array::at(unsigned index) {
-    if (index >= _size) {
-        std::cerr << "Error: Index exceeds number of array elements. Index must not exceed "
-        << _size-1 << std::endl;
-        return _data[0]; // CHANGE ME
-    }
-    return _data[index];
-}
+double &Array::at(unsigned index) {return _data[index];}
 
-const double &Array::at(unsigned index) const {
-    if (index >= _size) {
-        std::cerr << "Error: Index exceeds number of array elements. Index must not exceed "
-        << _size-1 << std::endl;
-        return _data[0]; // CHANGE ME
-    }
-    return _data[index];
-}
+const double &Array::at(unsigned index) const {return _data[index];}
 
 void Array::resize(unsigned new_size, bool prsv) {
     double * new_data;
@@ -150,3 +136,21 @@ void Array::print() const {
     }std::cout << "]" << std::endl;
 }
 
+double &Array::operator[](const unsigned index) {return _data[index];}
+const double &Array::operator[](const unsigned index) const {return _data[index];}
+
+Array &Array::operator=(const Array &other) {
+    if (_size != other._size) {
+        resize(other._size, false);
+    }
+    copy(other);
+    return *this;
+}
+
+Array operator+(const Array &lhs, const Array &rhs) {
+    return lhs.add(rhs);
+}
+
+Array operator-(const Array &lhs, const Array &rhs) {
+    return lhs.sub(rhs);
+}
