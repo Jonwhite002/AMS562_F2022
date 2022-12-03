@@ -10,7 +10,7 @@ int main() {
     arr1[1] = -9.2;
     arr1[2] = 5.9;
 
-    Array arr3 = arr1 - arr2;
+    Array arr3 = arr1 + arr2;
 
     arr3.print();
 

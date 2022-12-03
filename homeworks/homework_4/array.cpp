@@ -82,7 +82,7 @@ double Array::sum() const {
     for (int i = 0; i < _size; ++i) {
         temp = temp + _data[i];
     } 
-    return(temp);
+    return temp;
 }
 
 double Array::max() const {
@@ -110,7 +110,7 @@ double Array::dot(const Array &rhs) const {
     for (int i = 0; i < _size; ++i) {
         temp = temp + _data[i]*rhs._data[i];
     } 
-    return(temp);
+    return temp;
 }
 
 Array Array::add(const Array &rhs) const {
@@ -118,7 +118,7 @@ Array Array::add(const Array &rhs) const {
     for (int i = 0; i < arr._size; ++i) {
         arr._data[i] = _data[i]+rhs._data[i];
     }
-    return(arr);
+    return arr;
 }
 
 Array Array::sub(const Array &rhs) const {
@@ -126,7 +126,7 @@ Array Array::sub(const Array &rhs) const {
     for (int i = 0; i < arr._size; ++i) {
         arr._data[i] = _data[i]-rhs._data[i];
     }
-    return(arr);
+    return arr;
 }
 
 void Array::print() const {
