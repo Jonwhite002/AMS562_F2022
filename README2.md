@@ -37,8 +37,9 @@ Most of the functions behave as they were expected to by the professor, but some
 - E.g.) ```arr1.copy(arr2)``` --> If both ```arr1``` and ```arr2``` have the same size, then effectively: ```arr1 = arr2```
 
 #### Indexing: ```&at(unsigned index)```
-- Overloaded function. Returns the value of the indexed element in ```this``` array.
-- E.g.) If ```arr1 = [2, 3, 6, 4]```, then ```arr1.at(2)``` is equal to ```6```.
+- Overloaded function. Can be used to either return or set the value of an element in ```this``` array.
+- E.g.) If ```arr1 = [2 3 6 4]```, then ```arr1.at(2)``` is equal to ```6```.
+- E.g.) ```arr1.at(2) = 10``` --> ```arr1 = [2 3 10 4]```
 
 #### Resize: ```resize(unsigned new_size, bool prsv)```
 - Resizes ```this``` array to size ```new_size```. The ```prsv``` flag preserves the elements of the array prior to resizing. It is ```true``` by default. 
@@ -82,12 +83,13 @@ Most of the functions behave as they were expected to by the professor, but some
 ### <ins>Operators</ins>
 
 #### The ```[]``` operator:
-- Used to index the element of an array.
+- Used to index the element of an array. Simpler version of ```at()```
 - E.g.) ```arr[i]``` where ```0 <= i < _size```
 
 #### The ```=``` operator:
-- Used to assign one Array object to another.
-- E.g.) ```Array arr3 = arr1 + arr2```
+- Used to assign one Array object to another. Simpler than ```copy()``` with the added benefit that array ```this``` will be resized if it is not already the same size as the array it is being assigned.
+- E.g.) If ```arr1 = [0]``` and ```arr2 = [1 2 3]```, then ```arr1 = arr2``` yields ```arr1 = [1 2 3]```
+- E.g.) ```arr3 = arr1 + arr2```
 
 #### The ```+``` operator:
 - Returns the sum of two arrays. Simpler version of ```add()```
