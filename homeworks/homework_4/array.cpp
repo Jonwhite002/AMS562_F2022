@@ -2,13 +2,11 @@
 #include <cmath>
 #include "array.hpp"
 
-// default constructor
 Array::Array() {
     _size = 0;
     _data = 0;
 }
 
-// copy constructor
 Array::Array(const Array &other) {
     _size = other._size;
     for(int i = 0; i < _size; ++i) {
@@ -16,7 +14,6 @@ Array::Array(const Array &other) {
     }
 }
 
-// constructor with array size & values
 Array::Array(unsigned n, double v) {
     _size = n;
     _data = new double [n];
@@ -25,7 +22,6 @@ Array::Array(unsigned n, double v) {
     }
 }
 
-// destructor
 Array::~Array() {
     delete[] _data;
 }
@@ -137,6 +133,7 @@ void Array::print() const {
 }
 
 double &Array::operator[](const unsigned index) {return _data[index];}
+
 const double &Array::operator[](const unsigned index) const {return _data[index];}
 
 Array &Array::operator=(const Array &other) {
