@@ -7,7 +7,7 @@ To compile the program, first move into the folder directory. Then type ```g++ m
 
 Most of the functions behave as they were expected to by the professor, but some additional documentation will be provided.
 
-### Constructors
+### <ins>Constructors</ins>
 
 #### Default constructor: ```Array()```
 - Initializes both ```_size``` and ```_data``` to zero.
