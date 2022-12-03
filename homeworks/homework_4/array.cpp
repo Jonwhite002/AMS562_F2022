@@ -64,9 +64,24 @@ const double &Array::at(unsigned index) const {
     return _data[index];
 }
 
-// void Array::resize(unsigned new_size, bool prsv = true) {
+void Array::resize(unsigned new_size, bool prsv) {
+    double * new_data;
+    new_data = new double [new_size];
 
-// }
+    unsigned size = 0;
+    if (prsv) {
+        size = std::min(new_size, _size);
+        for (int i = 0; i < size; ++i)
+            new_data[i] = _data[i];
+    }
+
+    for (int i = size; i < new_size; ++i)
+        new_data[i] = 0.0;
+
+    delete[] _data;
+    _size = new_size;
+    _data = new_data;
+}
 
 double Array::norm() const {
     double temp = 0;
@@ -134,3 +149,4 @@ void Array::print() const {
         std::cout << _data[i] << " ";
     }std::cout << "]" << std::endl;
 }
+

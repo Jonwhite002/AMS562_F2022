@@ -10,9 +10,10 @@ int main() {
     arr1.at(1) = -9.2;
     arr1.at(2) = 5.9;
 
-    Array arr3 = arr1.add(arr2);
+    arr1.resize(10, false);
 
-    arr3.print();
+    std::cout << arr1.at(3) << std::endl;
+    arr1.print();
 
     return 0;
 }
