@@ -3,14 +3,13 @@
 
 int main() {
 
-    Array arr1(4,3.2);
-    Array arr2(4,2.7);
+    Array arr1(5);
+    Array arr2(6, 1);
+    Array arr3;
 
-    arr1[0] = 2.4;
-    arr1[1] = -9.2;
-    arr1[2] = 5.9;
+    arr1.print();
 
-    Array arr3 = arr1 + arr2;
+    arr1[0] = 2.4; arr1[1] = -9.2; arr1[2] = 5.9;
 
     arr3.print();
 
