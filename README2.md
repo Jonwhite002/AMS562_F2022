@@ -23,7 +23,7 @@ Most of the functions behave as they were expected to by the professor, but some
 #### Destructor: ```~Array()```
 - Frees the memory.
 
-### Misc. Member Functions
+### <ins>Misc. Member Functions</ins>
 
 #### Size: ```size()```
 - Returns the size of an array.
@@ -46,7 +46,7 @@ Most of the functions behave as they were expected to by the professor, but some
 - E.g.) If ```arr1 = [1 2 3]```, then ```arr1.resize(5)``` becomes ```arr1 = [1 2 3 0 0]```
 - E.g.) If ```arr1 = [1 2 3]```, then ```arr1.resize(5,false)``` becomes ```arr1 = [0 0 0 0 0]```
 
-### Math Member Functions
+### <ins>Math Member Functions</ins>
 
 #### Norm of array: ```norm()```
 - Returns the magnitude of ```this``` array.
@@ -79,7 +79,7 @@ Most of the functions behave as they were expected to by the professor, but some
 - Prints out ```this``` array information in the terminal.
 - E.g.) ```arr1.print()``` --> ```Size: 5, Elements: [1 2 3 4 5]```
 
-### Operators
+### <ins>Operators</ins>
 
 #### The ```[]``` operator:
 - Used to index the element of an array.
