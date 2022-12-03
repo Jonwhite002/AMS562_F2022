@@ -36,4 +36,5 @@ Most of the functions behave as they were expected to by the professor, but some
 - E.g.) ```arr1.data()```
 
 #### Copy: ```copy(const Array &rhs)```
-- Places the
+- Copies over the array information into the current array as long as both are of equal size.
+- E.g.) ```arr1.copy(arr2)``` --> If both ```arr1``` and ```arr2``` have the same size, then effectively: ```arr1 = arr2```
