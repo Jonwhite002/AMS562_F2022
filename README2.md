@@ -5,7 +5,10 @@ To compile the program, first move into the folder directory. Then type ```g++ m
 
 ## Testing
 
-Most of the functions behave as they were expected to by the professor, but some additional documentation will be provided for all.
+Most of the functions behave as they were expected to by the professor, but some additional documentation will be provided.
 
 ### Constructors
+
+#### The default constructor
+```Array()```, initializes both ```_size``` and ```_data``` to zero.
 
