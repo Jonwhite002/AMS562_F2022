@@ -1,7 +1,7 @@
 # How to Run & Test
 
 ## Building/Compiling
-To compile the program, first move into the folder directory. Then type '''g++ main.cpp array.cpp''', and finally '''./a''' to execute.
+To compile the program, first move into the folder directory. Then type ```g++ main.cpp array.cpp```, and finally ```./a``` to execute.
 
 ## Testing
 
