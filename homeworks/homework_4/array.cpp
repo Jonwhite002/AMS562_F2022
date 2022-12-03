@@ -30,10 +30,30 @@ Array::~Array() {
     delete[] _data;
 }
 
-// get length of array
 unsigned Array::size() const {return _size;}
 
-// copy
+double *Array::data() {return _data;}
+
+const double *Array::data() const {return _data;}
+
+double &Array::at(unsigned index) {
+    if (index >= _size) {
+        std::cerr << "Error: Index exceeds number of array elements. Index must not exceed "
+        << _size-1 << std::endl;
+        return _data[0]; // CHANGE ME
+    }
+    return _data[index];
+}
+
+const double &Array::at(unsigned index) const {
+    if (index >= _size) {
+        std::cerr << "Error: Index exceeds number of array elements. Index must not exceed "
+        << _size-1 << std::endl;
+        return _data[0]; // CHANGE ME
+    }
+    return _data[index];
+}
+
 void Array::copy(const Array &rhs) {
     if (_size != rhs._size) {
         std::cerr << "ERROR: Left and right hand sides are not of same size\n";
@@ -44,7 +64,7 @@ void Array::copy(const Array &rhs) {
     }
 }
 
-// terminal printing
+
 void Array::print() const {
     std::cout << "Size: " << _size << "\nElements: [ ";
     for (int i = 0; i < _size; ++i) {
@@ -52,7 +72,7 @@ void Array::print() const {
     }std::cout << "]" << std::endl;
 }
 
-// math functions
+
 double Array::norm() const {
     double temp = 0;
     for (int i = 0; i < _size; ++i) {
@@ -67,4 +87,22 @@ double Array::sum() const {
         temp = temp + _data[i];
     } 
     return(temp);
+}
+
+double Array::dot(const Array &rhs) const {
+    if (_size != rhs._size) {
+        std::cerr << "ERROR: Left and right hand sides are not of same size\n";
+        return -1;
+    }
+    double temp = 0;
+    for (int i = 0; i < _size; ++i) {
+        temp = temp + _data[i]*rhs._data[i];
+    } 
+    return(temp);
+}
+
+Array Array::add(const Array &rhs) const {
+    for (int i = 0; i < _size; ++i) {
+        this->_data[i] = _data[i]+rhs._data[i];
+    }
 }

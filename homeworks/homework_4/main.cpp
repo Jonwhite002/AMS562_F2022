@@ -3,13 +3,12 @@
 
 int main() {
 
-    Array arr1(10,3.2);
-    Array arr2(2,1);
+    Array arr1(3,3.2);
+    Array arr2(4,2.7);
 
     arr1.print();
 
-    std::cout << arr1.norm() << std::endl;
-    std::cout << arr1.sum() << std::endl;
+    std::cout << arr1.at(4) << std::endl;
 
     return 0;
 }
