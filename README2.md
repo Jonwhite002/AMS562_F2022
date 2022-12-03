@@ -41,7 +41,7 @@ Most of the functions behave as they were expected to by the professor, but some
 - E.g.) If ```arr1 = [2, 3, 6, 4]```, then ```arr1.at(2)``` is equal to ```6```.
 
 #### Resize: ```resize(unsigned new_size, bool prsv)```
-- Resizes ```this```n array to size ```new_size```. The ```prsv``` flag preserves the elements of the array prior to resizing. It is ```true``` by default. 
+- Resizes ```this``` array to size ```new_size```. The ```prsv``` flag preserves the elements of the array prior to resizing. It is ```true``` by default. 
 - If ```new_size``` is larger than the old array size, its new elements will be set to zero.
 - E.g.) If ```arr1 = [1 2 3]```, then ```arr1.resize(5)``` becomes ```arr1 = [1 2 3 0 0]```
 - E.g.) If ```arr1 = [1 2 3]```, then ```arr1.resize(5,false)``` becomes ```arr1 = [0 0 0 0 0]```
@@ -67,3 +67,32 @@ Most of the functions behave as they were expected to by the professor, but some
 
 #### Add two arrays: ```add(const Array &rhs)```
 - Adds the corresponding elements of ```this``` array and array ```rhs```.
+- The new array created has the same size as ```rhs```.
+- E.g.) If ```arr1 = [1 2 3]``` and ```rhs = [9 3 4 2 5]```, then ```arr1.add(rhs)``` is equal to ```[10 5 7 2 5]```
+
+#### Subtracts two arrays: ```sub(const Array &rhs)```
+- Subtracts the corresponding elements of ```this``` array and array ```rhs```.
+- The new array created has the same size as ```rhs```.
+- E.g.) If ```arr1 = [1 2 3]``` and ```rhs = [9 3 4 2 5]```, then ```arr1.add(rhs)``` is equal to ```[-8 -1 -1 -2 -5]```
+
+#### Terminal print array: ```print()```
+- Prints out ```this``` array information in the terminal.
+- E.g.) ```arr1.print()``` --> ```Size: 5, Elements: [1 2 3 4 5]```
+
+### Operators
+
+#### The ```[]``` operator:
+- Used to index the element of an array.
+- E.g.) ```arr[i]``` where ```0 <= i < _size```
+
+#### The ```=``` operator:
+- Used to assign one Array object to another.
+- E.g.) ```Array arr3 = arr1 + arr2```
+
+#### The ```+``` operator:
+- Returns the sum of two arrays. Simpler version of ```add()```
+- E.g.) ```arr1 + arr2```
+
+#### The ```-``` operator:
+- Returns the difference between two arrays. Simpler version of ```sub()```
+- E.g.) ```arr1 - arr2```
