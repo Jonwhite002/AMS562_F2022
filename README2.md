@@ -9,6 +9,6 @@ Most of the functions behave as they were expected to by the professor, but some
 
 ### Constructors
 
-#### The default constructor
-```Array()```, initializes both ```_size``` and ```_data``` to zero.
+#### Default constructor ```Array()```
+Initializes both ```_size``` and ```_data``` to zero.
 
